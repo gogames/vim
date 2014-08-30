@@ -1,5 +1,4 @@
 " UI
-" git clone https://github.com/fatih/molokai.git and put it in .vim dir
 : colorscheme molokai 
 set ruler
 set number
@@ -85,8 +84,6 @@ let NERDTreeChDirMode=1
 map <F2> :NERDTreeToggle<CR>
 
 filetype plugin indent on
-filetype plugin on
-filetype indent on
 syntax on
 
 nmap <Down> <PageDown>
