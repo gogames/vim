@@ -1,4 +1,5 @@
 " UI
+" git clone https://github.com/fatih/molokai.git and put molokai under .vim/colors dir
 : colorscheme molokai 
 set ruler
 set number
@@ -13,14 +14,17 @@ let g:mapleader = ","
 let mapleader = ","
 
 " Bundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+execute pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
 let g:go_disable_autoinstall = 0
+let g:go_fmt_command = "goimports"
 
+nmap gr :GoRun %<CR>
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " no backup
