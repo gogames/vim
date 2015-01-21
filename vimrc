@@ -1,6 +1,6 @@
 " UI
 " git clone https://github.com/fatih/molokai.git and put molokai under .vim/colors dir
-: colorscheme molokai 
+: colorscheme molokai
 set ruler
 set number
 set background=dark
@@ -86,6 +86,20 @@ let NERDTreeWinPos='right'
 let NERDTreeWinSize=31
 let NERDTreeChDirMode=1
 map <F2> :NERDTreeToggle<CR>
+
+" commentary
+Bundle 'tpope/vim-commentary'
+
+" ctrlp.vim
+Bundle 'kien/ctrlp.vim'
+
+" vim-airline status-line
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" syntastic
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 syntax on
