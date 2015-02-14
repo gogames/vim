@@ -5,7 +5,7 @@ set ruler
 set number
 set background=dark
 set t_Co=256
-set cursorline
+" set cursorline
 set backspace=indent,eol,start
 set fdm=indent
 set nocompatible
