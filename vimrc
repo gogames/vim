@@ -12,19 +12,23 @@ set nocompatible
 
 let g:mapleader = ","
 let mapleader = ","
+nmap <Leader>q :q<CR>
+nmap <Leader>wq :wq<CR>
+
 
 " Bundle
-execute pathogen#infect()
+" execute pathogen#infect()
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'fatih/vim-go'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
 let g:go_disable_autoinstall = 0
 let g:go_fmt_command = "goimports"
 
-nmap gr :GoRun %<CR>
+au FileType go nmap gr :GoRun %<CR>
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " no backup
@@ -49,7 +53,7 @@ autocmd BufReadPost *
 			\ endif
 
 " go tags
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -81,25 +85,44 @@ let g:tagbar_type_go = {
 
 
 " nerd tree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31
 let NERDTreeChDirMode=1
 map <F2> :NERDTreeToggle<CR>
 
 " commentary
-Bundle 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 
 " ctrlp.vim
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
+
+" easy grep
+Plugin 'dkprice/vim-easygrep'
 
 " vim-airline status-line
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
+" auto close
+" "Plugin 'vim-scripts/AutoClose'
+
 " syntastic
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
+ 
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "⚡"
+let g:syntastic_warning_symbol = "✗"
+let g:syntastic_style_warning_symbol = "⚡"
+
+" syntastic golang checker
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+
+Plugin 'vim-scripts/Dutyl'
+let g:dutyl_stdImportPaths=['/usr/local/Cellar/dmd/2.066.1/include/d2']
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
